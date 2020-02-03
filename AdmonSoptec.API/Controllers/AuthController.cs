@@ -21,6 +21,7 @@ namespace AdmonSoptec.API.Controllers
         public AuthController(IAuthRepository repo, IConfiguration config)
         {
            _repo = repo;
+           _config = config;
         }
 
         [HttpPost("register")]
@@ -52,7 +53,7 @@ namespace AdmonSoptec.API.Controllers
                 new Claim(ClaimTypes.NameIdentifier, userFromRepo.Id.ToString()),
                 new Claim(ClaimTypes.Name, userFromRepo.Username)
            };
-
+         
            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config.GetSection("AppSettings:Token").Value));
            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
            var tokenDescriptor = new SecurityTokenDescriptor

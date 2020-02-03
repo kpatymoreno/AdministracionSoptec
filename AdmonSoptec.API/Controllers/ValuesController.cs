@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AdmonSoptec.API.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace AdmonSoptec.API.Controllers
 {
+     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase
@@ -31,7 +33,7 @@ namespace AdmonSoptec.API.Controllers
         {
             return new string[] { "value1", "value2" };
         }
-
+         [AllowAnonymous]
         // GET api/values/5
         [HttpGet("{id}")]
 
