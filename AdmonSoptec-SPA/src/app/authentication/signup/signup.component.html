@@ -1,0 +1,54 @@
+<div class="auth-wrapper d-flex no-block justify-content-center align-items-center contendor">
+
+    <div class="auth-box">
+        <div class="logo">
+            <span class="db"><img class = "logotexto" src="assets/images/logo-text.png" alt="logo" /></span>
+            <h5 class="font-medium m-b-20">Alta de Usuario</h5>
+        </div>
+
+        <div class="altauser row">
+            <div class="col-12">
+                <form [formGroup]="registerForm" (ngSubmit)="Onregister()">
+                    <div class="form-group">
+                        <label>Correo Electronico:</label>
+                        <input class="form-control form-control-sm" formControlName="email" type="email" name="email" [(ngModel)]="model.email" placeholder="Correo electronico" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                            <div *ngIf="f.email.errors.required">Contraseña es requerida</div>
+                            <div *ngIf="f.email.errors.email">Debe ser una contraseña valida</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Nombre Completo:</label>
+                        <input class="form-control form-control-sm" formControlName="fullName" type="text" name="fullName" [(ngModel)]="model.username" placeholder="Nombre Completo" [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }" />
+                        <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
+                            <div *ngIf="f.fullName.errors.required">Nombre completo es requerido</div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Contraseña:</label>
+                        <input class="form-control form-control-sm" type="password" formControlName="password" name="password" [(ngModel)]="model.password" placeholder="Contraseña" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                            <div *ngIf="f.password.errors.required">Contraseña es requerida</div>
+                            <div *ngIf="f.password.errors.minlength">Contraseña debe de tener al menos 6 caracteres</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Confirmar Contraseña</label>
+                        <input class="form-control form-control-sm" type="password" required="password" formControlName="confirmPassword" placeholder="Confirmar Contraseña" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
+                        <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                            <div *ngIf="f.confirmPassword.errors.required">Confirmación de la contraseña es requerida</div>
+                            <div *ngIf="f.confirmPassword.errors.mustMatch">No coincide con contraseña</div>
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-12 col-12 justify-content-center align-items-center">
+                        <button class="btn btn-info btn-sm   waves-effect waves-light">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

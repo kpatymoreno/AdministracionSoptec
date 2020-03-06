@@ -28,24 +28,22 @@ namespace AdmonSoptec.API.Controllers
         public async Task<IActionResult> Register(UserForRegisterDto userForRegusterDto)
          {
            //Validar solicitud
-          userForRegusterDto.Username = userForRegusterDto.Username.ToLower();
-           if (await _repo.UserExists(userForRegusterDto.Username))
+          userForRegusterDto.Email = userForRegusterDto.Email.ToLower();
+           if (await _repo.UserExists(userForRegusterDto.Email))
            return BadRequest("Usuario ya esta ocupado");
 
            var userToCreate = new User
            {
-           Username = userForRegusterDto.Username
+           Email = userForRegusterDto.Email
            };
-           var createdUser = await _repo.Register(userToCreate, userForRegusterDto.Password);
+           var createdUser = await _repo.Register(userToCreate, userForRegusterDto.Password, userForRegusterDto.Username);
            return StatusCode(201);
         }
 
            [HttpPost("login")]
            public async Task<IActionResult> Login(UserForLoginDto userForLoginDto)
            {
-        
-                  
-            var userFromRepo = await _repo.Login(userForLoginDto.Username, userForLoginDto.Password);
+            var userFromRepo = await _repo.Login(userForLoginDto.Email, userForLoginDto.Password);
 
             if (userFromRepo == null)
             return Unauthorized();
@@ -53,7 +51,7 @@ namespace AdmonSoptec.API.Controllers
             var claims = new[]
              {
                 new Claim(ClaimTypes.NameIdentifier, userFromRepo.Id.ToString()),
-                new Claim(ClaimTypes.Name, userFromRepo.Username)
+                new Claim(ClaimTypes.Name, userFromRepo.Email)
            };
          
            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config.GetSection("AppSettings:Token").Value));
@@ -69,9 +67,6 @@ namespace AdmonSoptec.API.Controllers
            var token = tokenHandler.CreateToken(tokenDescriptor);
 
            return Ok(new {token = tokenHandler.WriteToken(token)});
-                  return StatusCode(500, "Computer really");
-            }
-            
            }
-    
+    }
 }

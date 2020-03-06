@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800');
+.logotexto {
+    max-width: 150px;
+    height: auto;
+}
+
+.contendor {
+    background: url(assets/images/big/auth-bg.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+
+.boton {
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.texto {
+    display: grid;
+    margin: auto;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 40px;
+    justify-content: center;
+    align-items: center;
+}
