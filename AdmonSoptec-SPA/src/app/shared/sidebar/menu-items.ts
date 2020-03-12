@@ -44,7 +44,7 @@ export const ROUTES: RouteInfo[] = [
   },
   {
     path: '',
-    title: 'Apps',
+    title: 'Administracion',
     icon: 'mdi mdi-dots-horizontal',
     class: 'nav-small-cap',
     extralink: true,
@@ -623,7 +623,7 @@ export const ROUTES: RouteInfo[] = [
   },
   {
     path: '',
-    title: 'Pages',
+    title: 'Gestiones',
     icon: 'mdi mdi-dots-horizontal',
     class: 'nav-small-cap',
     extralink: true,

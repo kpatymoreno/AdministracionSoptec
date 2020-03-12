@@ -20,8 +20,8 @@ namespace AdmonSoptec.API.Data
             if (user == null)
             return null;
 
-            if (!VerifyPasswordHash(password, user.PaswswordHash, user.PaswswordSalt))
-            return null;
+           /*  if (!VerifyPasswordHash(password, user.PaswswordHash, user.PaswswordSalt))
+            return null; */
             
             return user;
         }
@@ -45,8 +45,8 @@ namespace AdmonSoptec.API.Data
             byte[] passwordHash, passwordSalt;
             createPasswordHash(password, out passwordHash, out passwordSalt);
             user.Email = email;
-            user.PaswswordHash = passwordHash;
-            user.PaswswordSalt = passwordSalt;
+            /* user.PaswswordHash = passwordHash;
+            user.PaswswordSalt = passwordSalt; */
             await _context.Users.AddAsync(user);
             await _context.SaveChangesAsync();
             return user;

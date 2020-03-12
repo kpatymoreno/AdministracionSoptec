@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AdmonSoptec.API.Data;
 using AdmonSoptec.API.Dtos;
 using AdmonSoptec.API.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -14,6 +15,7 @@ namespace AdmonSoptec.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [AllowAnonymous]
     public class AuthController : ControllerBase
     {
         private readonly IAuthRepository _repo;
