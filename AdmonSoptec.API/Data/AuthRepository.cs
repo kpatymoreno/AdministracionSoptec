@@ -44,6 +44,7 @@ namespace AdmonSoptec.API.Data
         {
             byte[] passwordHash, passwordSalt;
             createPasswordHash(password, out passwordHash, out passwordSalt);
+            user.UserName = email;
             user.Email = email;
             /* user.PaswswordHash = passwordHash;
             user.PaswswordSalt = passwordSalt; */

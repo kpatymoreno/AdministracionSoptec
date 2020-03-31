@@ -34,15 +34,23 @@ namespace AdmonSoptec.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+         
+            
+
             IdentityBuilder builder = services.AddIdentityCore<User>(opt =>
             {
+          
                 opt.Password.RequireDigit = false;
                 opt.Password.RequiredLength = 6;
                 opt.Password.RequireNonAlphanumeric = false;
                 opt.Password.RequireUppercase = false;
+                opt.User.AllowedUserNameCharacters = null;
+                
             });
+           
 
             builder = new IdentityBuilder(builder.UserType, typeof(Role), builder.Services);
+         
             builder.AddEntityFrameworkStores<DataContext>();
             builder.AddRoleValidator<RoleValidator<Role>>();
             builder.AddSignInManager<SignInManager<User>>();
