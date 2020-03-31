@@ -44,12 +44,15 @@ namespace AdmonSoptec.API.Controllers
 
             var userToCreate = new User
             {
-                Email = userForRegusterDto.Email,
+               // Email = userForRegusterDto.Email,
                 UserName = userForRegusterDto.Username
                 
             };
             
             var result = await _userManager.CreateAsync(userToCreate, userForRegusterDto.Password);
+            
+            
+                
             if (result.Succeeded)
             {return StatusCode(201);}
             return BadRequest(result.Errors);
