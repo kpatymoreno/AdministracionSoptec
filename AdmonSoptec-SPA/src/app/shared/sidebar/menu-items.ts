@@ -718,8 +718,8 @@ export const ROUTES: RouteInfo[] = [
         submenu: []
       },
       {
-        path: '/authentication/lock',
-        title: 'Lockscreen',
+        path: '/authentication/roles-manager',
+        title: 'Administrador de roles',
         icon: 'mdi mdi-account-off',
         class: '',
         extralink: false,

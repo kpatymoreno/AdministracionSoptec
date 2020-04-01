@@ -16,7 +16,7 @@ export const Approutes: Routes = [
       },
       {
         path: 'starter',
-        loadChildren: () => import('./starter/starter.module').then(m => m.StarterModule)
+        loadChildren: () => import('./managmentservice/starter.module').then(m => m.StarterModule)
       },
       {
         path: 'component',
@@ -31,7 +31,7 @@ export const Approutes: Routes = [
         path: 'widgets',
         loadChildren: () => import('./widgets/widgets.module').then(m => m.WidgetsModule)
       },
-      { path: 'ecom', loadChildren: () => import('./ecommerce/ecom.module').then(m => m.EcomModule) },
+      { path: 'ecom', loadChildren: () => import('./process/ecom.module').then(m => m.EcomModule) },
       {
         path: 'timeline',
         loadChildren: () => import('./timeline/timeline.module').then(m => m.TimelineModule)
@@ -43,7 +43,7 @@ export const Approutes: Routes = [
       },
       { path: 'apps', loadChildren: () => import('./apps/apps.module').then(m => m.AppsModule) },
       { path: 'apps/email', loadChildren: () => import('./apps/email/mail.module').then(m => m.MailModule) },
-      { path: 'maps', loadChildren: () => import('./maps/maps.module').then(m => m.MapsModule) },
+      { path: 'maps', loadChildren: () => import('./maintenance/maps.module').then(m => m.MapsModule) },
       {
         path: 'sample-pages',
         loadChildren: () => import('./sample-pages/sample-pages.module').then(m => m.SamplePagesModule)
