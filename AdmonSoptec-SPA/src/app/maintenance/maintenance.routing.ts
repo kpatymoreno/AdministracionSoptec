@@ -1,19 +1,20 @@
 import { Routes } from '@angular/router';
 
 import { MapgoogleComponent } from './map-google/map-google.component';
+import { RolesComponent } from './roles/roles.component';
 
-export const MapRoutes: Routes = [
+export const MaintRoutes: Routes = [
   {
     path: '',
     children: [
       {
-        path: 'google',
-        component: MapgoogleComponent,
+        path: 'roles',
+        component: RolesComponent,
         data: {
-          title: 'Google Maps',
+          title: 'Roles',
           urls: [
             { title: 'Dashboard', url: '/dashboard' },
-            { title: 'Google Maps' }
+            { title: 'Mantenimiento de Roles' }
           ]
         }
       }

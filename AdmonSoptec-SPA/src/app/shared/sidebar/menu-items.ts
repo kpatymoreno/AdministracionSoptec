@@ -607,16 +607,16 @@ export const ROUTES: RouteInfo[] = [
   },
   {
     path: '',
-    title: 'Maps',
+    title: 'Mantenimientos',
     icon: 'mdi mdi-dots-horizontal',
     class: 'nav-small-cap',
     extralink: true,
     submenu: []
   },
   {
-    path: '/maps/google',
-    title: 'Google Maps',
-    icon: 'mdi mdi-google-maps',
+    path: '/maint/roles',
+    title: 'Mantenimiento de Roles',
+    icon: 'mdi-account-switch',
     class: '',
     extralink: false,
     submenu: []
@@ -631,8 +631,8 @@ export const ROUTES: RouteInfo[] = [
   },
   {
     path: '',
-    title: 'Ecommerce Pages',
-    icon: 'mdi mdi-cart-outline',
+    title: 'Procesos',
+    icon: 'mdi-arrange-send-backward',
     class: 'has-arrow',
     extralink: false,
     submenu: [
@@ -720,7 +720,7 @@ export const ROUTES: RouteInfo[] = [
       {
         path: '/authentication/roles-manager',
         title: 'Administrador de roles',
-        icon: 'mdi mdi-account-off',
+        icon: 'mdi-account-edit',
         class: '',
         extralink: false,
         submenu: []

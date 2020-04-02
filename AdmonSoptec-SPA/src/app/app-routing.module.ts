@@ -43,7 +43,7 @@ export const Approutes: Routes = [
       },
       { path: 'apps', loadChildren: () => import('./apps/apps.module').then(m => m.AppsModule) },
       { path: 'apps/email', loadChildren: () => import('./apps/email/mail.module').then(m => m.MailModule) },
-      { path: 'maps', loadChildren: () => import('./maintenance/maps.module').then(m => m.MapsModule) },
+      { path: 'maint', loadChildren: () => import('./maintenance/maintenance.module').then(m => m.MaintModule) },
       {
         path: 'sample-pages',
         loadChildren: () => import('./sample-pages/sample-pages.module').then(m => m.SamplePagesModule)
