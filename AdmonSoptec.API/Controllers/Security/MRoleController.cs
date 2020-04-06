@@ -27,8 +27,8 @@ namespace AdmonSoptec.API.Controllers.Security
 	
 		public async  Task<List<Role>> ConRoles()
 		{
-            var reader = _roleManager.Roles;
-            var response =  new List<Role>(reader);
+            var roles = _roleManager.Roles;
+            var response =  new List<Role>(roles);
             return  response;
 
 		}
