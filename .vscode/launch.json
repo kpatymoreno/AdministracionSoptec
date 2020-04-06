@@ -16,7 +16,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/AdmonSoptec.API/bin/Debug/netcoreapp2.2/AdmonSoptec.API.dll",
+            "program": "${workspaceFolder}/AdmonSoptec.API/bin/Debug/netcoreapp3.1/AdmonSoptec.API.dll",
             "args": [],
             "cwd": "${workspaceFolder}/AdmonSoptec.API",
             "stopAtEntry": false,

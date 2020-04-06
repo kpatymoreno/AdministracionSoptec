@@ -37,7 +37,7 @@ namespace AdmonSoptec.API
          
             
 
-            IdentityBuilder builder = services.AddIdentityCore<User>(opt =>
+            IdentityBuilder builder = services.AddIdentity<User, Role>(opt =>
             {
           
                 opt.Password.RequireDigit = false;
@@ -66,6 +66,7 @@ namespace AdmonSoptec.API
                     } );
 
             services.AddDbContext<DataContext>(x => x.UseSqlServer(Configuration.GetConnectionString("defaultConnection")));
+            
             services.AddControllers();
             services.AddControllers(options =>{
                 var policy = new AuthorizationPolicyBuilder()
