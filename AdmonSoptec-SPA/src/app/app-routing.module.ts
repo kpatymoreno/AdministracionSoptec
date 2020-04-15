@@ -1,5 +1,6 @@
+import { AuthGuard } from './_guards/auth.guard';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, CanActivate } from '@angular/router';
 
 import { FullComponent } from './layouts/full/full.component';
 import { BlankComponent } from './layouts/blank/blank.component';
@@ -8,8 +9,9 @@ export const Approutes: Routes = [
   {
     path: '',
     component: FullComponent,
+
     children: [
-      { path: '', redirectTo: '/authentication/login', pathMatch: 'full' },
+      { path: '', redirectTo: '/authentication/login', pathMatch: 'full'},
       {
         path: 'dashboard',
         loadChildren: () => import('./dashboards/dashboard.module').then(m => m.DashboardModule)
@@ -22,7 +24,7 @@ export const Approutes: Routes = [
         path: 'component',
         loadChildren: () => import('./component/component.module').then(m => m.ComponentsModule)
       },
-      { path: 'cards', loadChildren: () => import('./cards/cards.module').then(m => m.CardsModule) },
+      { path: 'cards', loadChildren: () => import('./cards/cards.module').then(m => m.CardsModule)},
       { path: 'icons', loadChildren: () => import('./icons/icons.module').then(m => m.IconsModule) },
       { path: 'forms', loadChildren: () => import('./form/forms.module').then(m => m.FormModule) },
       { path: 'tables', loadChildren: () => import('./table/tables.module').then(m => m.TablesModule) },

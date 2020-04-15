@@ -37,6 +37,8 @@
         "d3": "^4.8.0",
         "datatables.net": "^1.10.19",
         "datatables.net-dt": "^1.10.19",
+        "devextreme": "19.2.7",
+        "devextreme-angular": "19.2.7",
         "devextreme-schematics": "^1.0.13",
         "lodash": "^4.17.11",
         "ng-chartist": "^1.1.1",

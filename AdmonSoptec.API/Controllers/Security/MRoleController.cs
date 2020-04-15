@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using AdmonSoptec.API.Data;
 using AdmonSoptec.API.Dtos;
 using AdmonSoptec.API.Models;
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -15,21 +16,30 @@ namespace AdmonSoptec.API.Controllers.Security
     public class MRoleController  : ControllerBase
     {
         private readonly RoleManager<Role> _roleManager;
-        private readonly DataContext _context;
+        private readonly IMapper _mapper;
 
-        public MRoleController(RoleManager<Role> roleManager, DataContext context)
-    {
-       _roleManager = roleManager;
-       _context = context;
+        public MRoleController(RoleManager<Role> roleManager, IMapper mapper)
+        {
+            _roleManager = roleManager;
+            _mapper = mapper;
         }
 
         [HttpGet]
 	
-		public async  Task<List<Role>> ConRoles()
+		public async Task<List<Role>> ConRoles()
 		{
             var roles = _roleManager.Roles;
             var response =  new List<Role>(roles);
-            return  response;
+            return   response;
+
+		}
+        [HttpGet("con/{id}")]
+	
+		public async Task<RoleDetailedDto> ConRol(string id)
+		{
+             var objRole = await _roleManager.FindByIdAsync(id); 
+            var rolToReturn =_mapper.Map<RoleDetailedDto>(objRole);
+            return  rolToReturn;
 
 		}
 
@@ -55,7 +65,7 @@ namespace AdmonSoptec.API.Controllers.Security
 
        
         
-        [HttpPost("del/{role}")]
+        [HttpDelete("del/{role}")]
         public async Task<IActionResult> DeleteRole(string role)
         {
 
