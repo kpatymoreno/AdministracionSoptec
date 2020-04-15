@@ -622,6 +622,14 @@ export const ROUTES: RouteInfo[] = [
     submenu: []
   },
   {
+    path: '/maint/roles-form',
+    title: 'formulario de Roles',
+    icon: 'mdi-account-switch',
+    class: '',
+    extralink: false,
+    submenu: []
+  },
+  {
     path: '',
     title: 'Gestiones',
     icon: 'mdi mdi-dots-horizontal',
