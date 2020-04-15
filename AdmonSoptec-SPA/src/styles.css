@@ -1,6 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800');
 .logotexto {
     max-width: 150px;
     height: auto;
@@ -27,4 +26,92 @@
     grid-gap: 40px;
     justify-content: center;
     align-items: center;
+}
+
+.clsTipoIn {
+    border: 1px dotted #6a6969 !important;
+    width: 98% !important;
+    margin: 0 1% !important;
+    padding: 20px 15px 10px 15px !important;
+    background: #fcfcfc !important;
+}
+
+.myButton {
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    margin-right: 5px;
+}
+
+.myButton2 {
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    margin-left: 5px;
+}
+
+.subir {
+    margin-top: 16px;
+}
+
+.subirButton {
+    margin-top: 5px;
+}
+
+.btn-space-1 {
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.btn-space-2 {
+    margin-left: 5px;
+    margin-bottom: 10px;
+    height: 30px;
+}
+
+.btn-success-1 {
+    color: #fff;
+    background-color: #34a853;
+    border-color: #34a853;
+}
+
+.btn-1 {
+    box-shadow: 0 1px 0 rgba(0, 0, 0, .05);
+    font-size: 1rem;
+    line-height: 30px;
+    border-radius: 2px;
+    width: 100px;
+    height: 30px;
+}
+
+.btn-primary-1 {
+    color: #fff;
+    background-color: #4285f4;
+    border-color: #4285f4;
+}
+
+.btn-desaplicar {
+    color: #fff;
+    background-color: #FEF303 !important;
+}
+
+.btn-desaplicar:hover {
+    background-color: #FFF751 !important;
+    color: #fff;
+}
+
+.clsTipoIn2 {
+    border: 1px dotted #6a6969;
+    width: 98%;
+    margin: 0 1% !important;
+    padding: 20px 15px 10px 15px;
+    background: #fcfcfc;
+}
+
+.bajar {
+    width: 30px !important;
+    height: 30px !important;
+    margin-bottom: 30px !important;
+    text-align: center !important;
+    margin-left: 30px !important;
 }

@@ -1,3 +1,47 @@
-<p>
-  roles works!
-</p>
+<div Class="row">
+    <div Class="col-md-12">
+        <div Class="card card-border-color card-border-color-primary">
+            <div Class="card-header card-header-divider">
+                <dx-toolbar>
+                    <dxi-item location="before" widget="dxButton" locateInMenu="never">
+                        <div *dxTemplate>
+                        </div>
+                    </dxi-item>
+                    <dxi-item location="before">
+                        <dx-button class="btn-1 btn-space-1 btn-primary-1" icon="icon-left mdi mdi-cloud-done" text="Nuevo" type="default">
+                        </dx-button>
+                    </dxi-item>
+                </dx-toolbar>
+
+            </div>
+            <div Class="card card-table">
+
+                <div class="card card-header">
+                    <dx-data-grid id="gridContainer" [dataSource]="models" [columnAutoWidth]="false" [showBorders]="true" [showColumnLines]="true" [showRowLines]="true" [rowAlternationEnabled]="true" [hoverStateEnabled]="true" [allowColumnResizing]="true" [columnResizingMode]="'widget'"
+                        [width]="'100%'" (onRowRemoving)="rowRemoving($event)" (onRowDblClick)="rowDblClick($event)" (onFocusedRowChanged)="focusedRowChanged($event)">
+                        <dxo-editing mode="row" [refreshMode]="'reshape'" [allowUpdating]="true" [allowDeleting]="true" [useIcons]="true">
+                        </dxo-editing>
+                        <dxo-selection [mode]="'single'"></dxo-selection>
+                        <dxo-load-panel [enabled]="true"></dxo-load-panel>
+                        <dxo-search-panel [visible]="true"></dxo-search-panel>
+                        <dxo-export [enabled]="true" fileName="BanBanco" [allowExportSelectedData]="true"></dxo-export>
+                        <dxo-group-panel [visible]="true"></dxo-group-panel>
+                        <dxo-grouping #expand [autoExpandAll]="true"></dxo-grouping>
+                        <dxo-paging [enabled]="false"></dxo-paging>
+                        <dxo-filter-panel [visible]="true"></dxo-filter-panel>
+                        <dxo-filter-row [visible]="true" [applyFilter]="'auto'"></dxo-filter-row>
+                        <dxo-header-filter [visible]="true"></dxo-header-filter>
+
+                        <dxi-column type="buttons" [width]="110">
+                            <dxi-button hint="Editar Registro" icon="edit" [visible]="getPermiteEditar" [onClick]="editarClick"></dxi-button>
+                            <dxi-button name="delete" [visible]="getPermiteDele"></dxi-button>
+                        </dxi-column>
+                        <dxi-column dataField="id" caption="Corr." [width]="250"></dxi-column>
+                        <dxi-column dataField="name" caption="Rol" [width]="250"></dxi-column>
+
+                    </dx-data-grid>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

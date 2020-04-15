@@ -44,9 +44,8 @@ namespace AdmonSoptec.API.Controllers
 
             var userToCreate = new User
             {
-               // Email = userForRegusterDto.Email,
-                UserName = userForRegusterDto.Username,
                 Email = userForRegusterDto.Email,
+                UserName = userForRegusterDto.Username
                 
             };
             

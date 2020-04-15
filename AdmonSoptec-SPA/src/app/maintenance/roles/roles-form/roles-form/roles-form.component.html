@@ -1,0 +1,36 @@
+<div class=" row">
+    <div class=" col-md-12">
+        <div class=" card card-border-color" [ngClass]="borderClass">
+            <div class=" card-header card-header-divider">{{tituloVentana}}
+                <span class=" card-subtitle">{{subTituloVentana}}</span>
+            </div>
+            <div class=" card-body">
+
+                <div class="row">
+                    <div class="form-group col-12 col-lg-2 text-sm-right">
+                        <label>Corr.</label>
+                    </div>
+                    <div class="form-group col-12 col-lg-2">
+                        <dx-number-box [(value)]="role.id" [readOnly]="true"></dx-number-box>
+                    </div>
+                    <div class="form-group col-12 col-lg-2 text-sm-right">
+                        <label>Rol</label>
+                    </div>
+                    <div class="form-group col-12 col-lg-3">
+                        <dx-text-box [(value)]="role.name" placeholder="Nombre Banco" showClearButton="true" [readOnly]="getReadOnly()">
+                            <dx-validator>
+                                <dxi-validation-rule type="required" message="Nombre Banco es Requerido"></dxi-validation-rule>
+                            </dx-validator>
+                        </dx-text-box>
+                    </div>
+                </div>
+                <div class="form-group row text-right">
+                    <div class="col col-sm-10 col-lg-9 offset-sm-1 offset-lg-0">
+                        <dx-button id="button" class="myButton" type="default" stylingMode="contained" *ngIf="estadoMtto!=0" [useSubmitBehavior]="true" (click)="guardar()">Guardar</dx-button>
+                        <dx-button id="button" class="myButton2" type="default" stylingMode="outlined" (click)="cancel()" routerLinkActive="router-link-active">Cancelar</dx-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
