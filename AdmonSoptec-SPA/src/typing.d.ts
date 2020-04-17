@@ -1,8 +1,13 @@
 declare module 'alertifyjs'
 
-declare module 'devextreme/localization/messages/es.json' {
+declare module 'globalize' {
   const value: any;
-  export	default value;
+  export default value;
+}
+
+declare module 'devextreme/localization/messages/*' {
+  const value: any;
+  export default value;
 }
 
 declare module 'devextreme-cldr-data/*' {

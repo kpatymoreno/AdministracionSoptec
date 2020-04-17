@@ -73,6 +73,8 @@
         "@types/jquery": "^3.3.30",
         "@types/node": "~8.9.4",
         "codelyzer": "^5.0.1",
+        "devextreme-cldr-data": "^1.0.2",
+        "globalize": "^1.5.0",
         "jasmine-core": "~2.99.1",
         "jasmine-spec-reporter": "~4.2.1",
         "karma": "^4.1.0",

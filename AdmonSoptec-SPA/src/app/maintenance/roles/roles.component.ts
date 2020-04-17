@@ -1,5 +1,8 @@
+import { ConfigDataService } from './../../_fx/config-data.service';
 import { DxDataGridComponent } from 'devextreme-angular';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { locale, loadMessages } from 'devextreme/localization';
+import esMessages from 'devextreme/localization/messages/es.json';
 import { RolesService } from '../_services/roles.service';
 
 @Component({
@@ -16,13 +19,17 @@ export class RolesComponent implements OnInit {
   urlOpcion = '/maint/roles';
 
 
-  constructor( private service: RolesService) { }
+  constructor( private service: RolesService, private configService: ConfigDataService) {
+    locale(this.configService.getLocale());
+    loadMessages(esMessages);
+   }
 
   ngOnInit() {
     this.getPermisos();
     this.getPermiteEditar = this.getPermiteEditar.bind(this);
     this.getPermiteDele = this.getPermiteDele.bind(this);
     this.consultar();
+
   }
 
   consultar() {
