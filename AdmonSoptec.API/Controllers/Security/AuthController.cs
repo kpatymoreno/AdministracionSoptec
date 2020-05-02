@@ -48,7 +48,7 @@ namespace AdmonSoptec.API.Controllers
                 UserName = userForRegusterDto.Username
                 
             };
-            
+           
             var result = await _userManager.CreateAsync(userToCreate, userForRegusterDto.Password);
             
             
@@ -63,6 +63,7 @@ namespace AdmonSoptec.API.Controllers
         {
 
             var user = await _userManager.FindByEmailAsync(userForLoginDto.Email);
+
             var result = await _signInManager.CheckPasswordSignInAsync(user, userForLoginDto.Password, false);
 
             if (result.Succeeded)

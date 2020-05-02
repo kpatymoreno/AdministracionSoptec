@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/_fx/auth.service';
 import { AlertifyService } from 'src/app/_fx/alertify.service';
 import { Router } from '@angular/router';
+import notify from 'devextreme/ui/notify';
 
 @Component({
   selector: 'app-login',
@@ -18,10 +19,11 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.authService.login(this.model).subscribe(next => {
-     this.alertify.success('Autenticado de forma correcta');
+      notify({message:'Ingreso exitoso', width: 'auto', shading: false}, 'success',  1500);
      this.router.navigate(['/starter']);
-    }, error => {  this.alertify.error(error);
-  });
+    },error => {
+      notify({ message: 'Autenticacion no ha sido exitosa, verifique credenciales', width: 'auto', shading: false }, 'error', 1500);
+    });
   }
 
   loggedIn() {

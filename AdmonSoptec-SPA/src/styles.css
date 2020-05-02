@@ -4,6 +4,10 @@
     max-width: 150px;
     height: auto;
 }
+.logotexto1 {
+  max-width: 70px;
+  height: auto;
+}
 
 .contendor {
     background: url(assets/images/big/auth-bg.jpg) no-repeat center center fixed;

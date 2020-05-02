@@ -7,6 +7,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace AdmonSoptec.API.Controllers.Security
 {
@@ -17,23 +18,26 @@ namespace AdmonSoptec.API.Controllers.Security
     {
         private readonly RoleManager<Role> _roleManager;
         private readonly IMapper _mapper;
+        private readonly DataContext _context;
 
-        public MRoleController(RoleManager<Role> roleManager, IMapper mapper)
+        public MRoleController(RoleManager<Role> roleManager, IMapper mapper, DataContext context)
         {
+            _context = context;
             _roleManager = roleManager;
             _mapper = mapper;
         }
 
         [HttpGet]
 	
-		public async Task<List<Role>> ConRoles()
+		 public async Task<List<Role>> ConRoles()
 		{
-            var roles = _roleManager.Roles;
-            var response =  new List<Role>(roles);
-            return   response;
+           
+            var roles = await _context.Role.ToListAsync();
+            return roles;
 
-		}
-        [HttpGet("con/{id}")]
+		} 
+
+        [HttpGet("{id}")]
 	
 		public async Task<RoleDetailedDto> ConRol(string id)
 		{
@@ -43,13 +47,13 @@ namespace AdmonSoptec.API.Controllers.Security
 
 		}
 
-    [HttpPost("new")]
+    [HttpPost]
         public async Task<IActionResult> NewRole(RoleforUserDto rolesForUserDto)
         {
           
             var rolToCreate = new Role
             {
-                // Email = userForRegusterDto.Email,
+               
                 Name = rolesForUserDto.Name
 
             };
@@ -65,7 +69,7 @@ namespace AdmonSoptec.API.Controllers.Security
 
        
         
-        [HttpDelete("del/{role}")]
+        [HttpDelete("{role}")]
         public async Task<IActionResult> DeleteRole(string role)
         {
 

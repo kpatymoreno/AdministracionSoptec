@@ -1,3 +1,9 @@
+import { PasswordresetComponent } from './passwordreset/passwordreset.component';
+import { ReenvioresetpasswordComponent } from './reenvioresetpassword/reenvioresetpassword.component';
+
+import { ReenvioactivacionComponent } from './reenvioactivacion/reenvioactivacion.component';
+import { NotificacionactivacionComponent } from './notificacionactivacion/notificacionactivacion.component';
+import { ActivationaccountComponent } from './activationaccount/activationaccount.component';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -14,6 +20,7 @@ import { SignupComponent } from './signup/signup.component';
 import { AuthenticationRoutes } from './authentication.routing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NotificacioncambiopasswordComponent } from './notificacioncambiopassword/notificacioncambiopassword.component';
 
 
 @NgModule({
@@ -28,7 +35,13 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     NotfoundComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    ActivationaccountComponent,
+    NotificacionactivacionComponent,
+    ReenvioactivacionComponent,
+    NotificacioncambiopasswordComponent,
+    ReenvioresetpasswordComponent,
+    PasswordresetComponent
   ]
 })
 export class AuthenticationModule {}

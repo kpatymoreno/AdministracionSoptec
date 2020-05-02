@@ -1,4 +1,5 @@
 using AdmonSoptec.API.Models;
+using AdmonSoptec.API.Models.Mantto;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,8 @@ namespace AdmonSoptec.API.Data
         public DataContext(DbContextOptions<DataContext> options) : base(options) {}
        
        public DbSet<Value> Values { get; set; }
+        public DbSet<Role> Role { get; set; }
+        public DbSet<Categoria> Categoria { get; set; }
 
        protected override void  OnModelCreating(ModelBuilder builder) {
            base.OnModelCreating(builder);

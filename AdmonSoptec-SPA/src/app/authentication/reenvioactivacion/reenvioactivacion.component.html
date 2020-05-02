@@ -1,0 +1,27 @@
+<div class="auth-wrapper d-flex no-block justify-content-center align-items-center ">
+  <div class="auth-box">
+
+          <div class="logo ">
+              <span class="db"><img class = "logo logotexto" src="assets/images/logo-text.png" alt="logo" /></span>
+              <br>
+              <br>
+              <br>
+              <div class="altauser row">
+
+                <div class="col-12">
+                    <form [formGroup]="reenviotokenForm" (ngSubmit)="Onreenviartoken()">
+                        <div class="form-group">
+                            <label class= "justify-content-left align-items-left" >Correo Electronico:</label>
+                            <input class="form-control form-control-sm" formControlName="email" type="email" name="email" [(ngModel)]="model.email" placeholder="Correo electronico" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+
+                        </div>
+                        <div class="form-group col-lg-12 col-12 justify-content-center align-items-center">
+                            <button class="btn btn-info btn-sm   waves-effect waves-light">Enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+          </div>
+          <!-- Form -->
+      </div>
+</div>

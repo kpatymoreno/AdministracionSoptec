@@ -4,6 +4,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { locale, loadMessages } from 'devextreme/localization';
 import esMessages from 'devextreme/localization/messages/es.json';
 import { RolesService } from '../_services/roles.service';
+import notify from 'devextreme/ui/notify';
 
 @Component({
   selector: 'app-roles',
@@ -35,6 +36,8 @@ export class RolesComponent implements OnInit {
   consultar() {
     this.service.allRoles().subscribe((model: any[]) => {
       this.models = model;
+      
+      notify({ message: 'Registro eliminado con exito! ', width: 'auto', shading: false }, 'success', 1500);
       console.dir(model);
     });
 

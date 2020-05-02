@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AdmonSoptec.API.Controllers.Manttos;
 using AdmonSoptec.API.Controllers.Security;
 using AdmonSoptec.API.Data;
+using AdmonSoptec.API.Data.Generics;
+using AdmonSoptec.API.Helpers;
 using AdmonSoptec.API.Models;
 using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -80,7 +83,9 @@ namespace AdmonSoptec.API
             });
 
             services.AddCors();
-            services.AddAutoMapper(typeof(MRoleController).Assembly);
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
+           
             services.AddScoped<IAuthRepository, AuthRepository>();
             
         }

@@ -4,6 +4,7 @@ import { AlertifyService } from 'src/app/_fx/alertify.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MustMatch } from '../../_helpers/must-match.validator';
 import { Router } from '@angular/router';
+import notify from 'devextreme/ui/notify';
 
 @Component({
   selector: 'app-signup',
@@ -40,8 +41,8 @@ get f() { return this.registerForm.controls; }
       return;
     }
      this.authService.register(this.model).subscribe(() => {
-      this.alertify.success('Usuario dado de alta de manera exitosa');
-      this.router.navigate(['/login']);
+      notify({message:'Usuario dado de alta de manera exitosa', width: 'auto', shading: false}, 'success',  1500);
+      this.router.navigate(['/authentication/notificacionactivacion']);
      }, error => {
       this.alertify.error(error);
      }

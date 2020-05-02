@@ -9,7 +9,7 @@ import { Role } from '../_models/role';
 })
 export class RolesService {
 
-  readonly urlMtto = environment.apiUrl + 'mrole/';
+  readonly urlMtto = environment.apiUrl + 'auth/';
   constructor(private http: HttpClient) { }
 
   newRole(model: any) {
