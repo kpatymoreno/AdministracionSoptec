@@ -1,3 +1,4 @@
+using System.Net;
 
 using System.Collections.Generic;
 
@@ -12,6 +13,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 
 using Microsoft.AspNetCore.Mvc;
+using AdmonSoptec.API.ErrorHandler;
 
 namespace AdmonSoptec.API.Controllers.Manttos
 {
@@ -70,6 +72,9 @@ namespace AdmonSoptec.API.Controllers.Manttos
         public async Task<IActionResult> UpdCategoria(int id,CategoriaUpdateDto categoriaUpdateDto)
         {
           var categoriaFromRepo = await _categoria.GetById(id);
+          if (categoriaFromRepo == null) {
+             throw new ManejadorExcepcion(HttpStatusCode.NotFound, new {categoria= "No se encontro el curso"});
+          }
           categoriaUpdateDto.id = categoriaFromRepo.Id;
       
           _mapper.Map(categoriaUpdateDto, categoriaFromRepo);

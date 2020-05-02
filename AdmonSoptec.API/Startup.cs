@@ -7,6 +7,7 @@ using AdmonSoptec.API.Controllers.Manttos;
 using AdmonSoptec.API.Controllers.Security;
 using AdmonSoptec.API.Data;
 using AdmonSoptec.API.Data.Generics;
+using AdmonSoptec.API.ErrorHandler;
 using AdmonSoptec.API.Helpers;
 using AdmonSoptec.API.Models;
 using AutoMapper;
@@ -93,10 +94,11 @@ namespace AdmonSoptec.API
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseMiddleware<ManejadorErrorMiddelware>();
             if (env.IsDevelopment())
             {
                 app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
-                app.UseDeveloperExceptionPage();
+                //app.UseDeveloperExceptionPage();
             }
             else
             {
