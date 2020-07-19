@@ -40,7 +40,7 @@
         "devextreme": "19.2.7",
         "devextreme-angular": "19.2.7",
         "devextreme-schematics": "^1.0.13",
-        "lodash": "^4.17.11",
+        "lodash": "^4.17.19",
         "ng-chartist": "^1.1.1",
         "ng-multiselect-dropdown": "^0.2.3",
         "ng2-archwizard": "^2.1.0",
